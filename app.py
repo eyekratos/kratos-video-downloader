@@ -106,11 +106,20 @@ def info(body: URLRequest):
     except HTTPException:
         raise
     except Exception as exc:
-        msg = str(exc).lower()
-        if "private video" in msg or "login" in msg or "sign in" in msg:
-            detail = "This content may be private or require login. Login-protected downloads are not supported."
+        # Keep the actual cause in the hosting logs; show a useful, non-misleading
+        # message to the user. "Sign in to confirm you're not a bot" is not the
+        # same as a private video.
+        error_text = str(exc)
+        print(f"[Kratos] info extraction failed: {error_text}", flush=True)
+        msg = error_text.lower()
+        if "private video" in msg or "video is private" in msg:
+            detail = "This video is private. Try a public video you own or have permission to save."
+        elif "confirm you're not a bot" in msg or "not a bot" in msg or "captcha" in msg:
+            detail = "YouTube is asking the hosting server to verify it is human. This public link may be temporarily blocked by YouTube; try another supported public link later."
+        elif "sign in" in msg or "login" in msg or "authentication" in msg:
+            detail = "The platform requires sign-in or authentication for this video. Login-protected downloads are not supported."
         else:
-            detail = "Could not fetch this video. The link may be unavailable or platform support may have changed."
+            detail = "Could not fetch this video. Check the hosting logs for the exact cause; the link may be unavailable or platform support may have changed."
         raise HTTPException(422, detail)
 
 
