@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Kratos Video Downloader for supported public video links.">
+<title>Kratos Video Downloader</title><link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/"><span class="logo">K</span><span><b>KRATOS</b><small>VIDEO DOWNLOADER</small></span></a><span class="pill"><i></i> Free tool</span></header>
+<main>
+<section class="hero"><div class="eyebrow">✦ &nbsp; SIMPLE. FAST. CLEAN.</div><h1>Your video.<br><em>One click away.</em></h1>
+<p class="subtitle">Paste a supported public video link and choose an available quality.</p>
+<section class="panel"><label for="videoUrl">VIDEO URL</label><div class="urlrow"><span class="linkicon">↗</span><input id="videoUrl" type="url" placeholder="Paste YouTube, Instagram Reel, or video URL..." maxlength="2048"><button id="pasteBtn" class="paste">Paste</button></div>
+<button id="inspectBtn" class="primary"><span>↓</span><b id="inspectLabel">Find video</b></button>
+<div class="platforms"><small>SUPPORTED PLATFORMS</small><span>▶ YouTube</span><span class="ig">◎ Instagram</span><span>V Vimeo</span><span>＋ More</span></div>
+<div id="status" class="status" role="status" aria-live="polite" hidden></div></section>
+<section id="result" class="panel result" hidden><div class="videohead"><div class="thumb"><img id="thumbnail" alt="" hidden><span id="thumbFallback">▶</span></div><div><small class="found">VIDEO FOUND</small><h2 id="videoTitle">Video title</h2><p id="videoDetails">Choose an available quality.</p></div></div><label for="quality">DOWNLOAD QUALITY</label><div class="qualityrow"><select id="quality" aria-label="Video quality"></select><button id="downloadBtn" class="primary">Download ↓</button></div><p class="note">Options depend on the source. FFmpeg may be needed to merge audio and video.</p></section>
+<div class="features"><article><span>↯</span><div><b>Easy to use</b><small>Just paste a link</small></div></article><article><span>◈</span><div><b>Quality options</b><small>When available</small></div></article><article><span>⌁</span><div><b>Temporary files</b><small>Downloads cleaned up</small></div></article></div>
+<p class="legal">Only download videos you own or have permission to save. Private videos, login bypasses and DRM-protected content are not supported. Platform support may change.</p></section></main>
+<footer><span>© 2026 KRATOS</span><span>Made for simple video saving</span></footer>
+<script src="/static/app.js"></script></body></html>
